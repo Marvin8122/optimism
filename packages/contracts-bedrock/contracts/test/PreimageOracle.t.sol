@@ -61,18 +61,6 @@ contract PreimageOracle_Test is Test {
         oracle.loadKeccak256PreimagePart(offset, preimage);
     }
 
-    /// @notice Tests that only the oracleWriter can set pre-images.
-    function testFuzz_loadKeccak256PreimagePart_nonOwner_reverts(address mallory) public {
-        vm.assume(mallory != address(this));
-
-        bytes memory preimage = hex"deadbeef";
-        PreimageOffset offset = PreimageOffset.wrap(0);
-
-        vm.prank(mallory);
-        vm.expectRevert(abi.encodeWithSignature("UnauthorizedCaller(address)", mallory));
-        oracle.loadKeccak256PreimagePart(offset, preimage);
-    }
-
     /// @notice Reading a pre-image part that has not been set should revert.
     function testFuzz_readPreimage_missingPreimage_reverts(bytes32 rawKey, uint256 rawOffset)
         public

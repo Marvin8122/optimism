@@ -102,11 +102,6 @@ contract PreimageOracle is Initializable, IPreimageOracle {
     function loadKeccak256PreimagePart(PreimageOffset partOffset, bytes calldata preimage)
         external
     {
-        // Validate that the caller is the authorized oracle writer
-        if (msg.sender != oracleWriter) {
-            revert UnauthorizedCaller(msg.sender);
-        }
-
         // Construct the pre-image key
         PreimageLength size;
         PreimageKey key;
