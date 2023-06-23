@@ -37,6 +37,7 @@
     "lint:specs:toc": "yarn run doctoc '--title=**Table of Contents**' ./specs",
     "postinstall": "patch-package",
     "ready": "yarn lint && yarn test",
+    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "release": "yarn build && yarn changeset publish",
     "update:yarn": "yarn set version 1.x"
