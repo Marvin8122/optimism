@@ -27,7 +27,6 @@
     "prebuild": "pnpm ts-node scripts/verify-foundry-install.ts",
     "autogen:artifacts": "ts-node scripts/generate-artifacts.ts",
     "autogen:invariant-docs": "ts-node scripts/invariant-doc-gen.ts",
-    "deploy": "hardhat deploy",
     "test": "pnpm build:differential && pnpm build:fuzz && forge test",
     "coverage": "pnpm build:differential && pnpm build:fuzz && forge coverage",
     "coverage:lcov": "pnpm build:differential && pnpm build:fuzz && forge coverage --report lcov",
