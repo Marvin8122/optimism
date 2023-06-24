@@ -324,6 +324,10 @@ jobs:
       - check-changed:
           patterns: contracts-bedrock,hardhat-deploy-config
       - run:
+          name: Install pnpm package manager
+          command: |
+            npm i pnpm --global
+      - run:
           name: print forge version
           command: forge --version
           working_directory: packages/contracts-bedrock
@@ -353,6 +357,10 @@ jobs:
             - pnpm-packages-v2-{{ checksum "pnpm-lock.yaml" }}
       - check-changed:
           patterns: contracts-bedrock,hardhat-deploy-config
+      - run:
+          name: Install pnpm package manager
+          command: |
+            npm i pnpm --global
       - run:
           name: print forge version
           command: forge --version
@@ -452,9 +460,9 @@ jobs:
       - checkout
       - attach_workspace: { at: "." }
       - restore_cache:
-          name: Restore Yarn Package Cache
+          name: Restore PNPM Package Cache
           keys:
-            - yarn-packages-v2-{{ checksum "yarn.lock" }}
+            - pnpm-packages-v2-{{ checksum "pnpm-lock.yaml" }}
       - check-changed:
           patterns: contracts-bedrock,hardhat-deploy-config
       - run:
