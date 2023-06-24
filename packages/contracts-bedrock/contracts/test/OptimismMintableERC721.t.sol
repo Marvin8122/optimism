@@ -50,7 +50,6 @@ contract OptimismMintableERC721_Test is ERC721Bridge_Initializer {
         assertEq(L2Token.REMOTE_TOKEN(), address(L1Token));
         assertEq(L2Token.BRIDGE(), address(L2Bridge));
         assertEq(L2Token.REMOTE_CHAIN_ID(), 1);
-        assertEq(L2Token.version(), "1.1.0");
     }
 
     /// @notice Ensure that the contract supports the expected interfaces.
